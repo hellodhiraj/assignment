@@ -5,10 +5,22 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Simple Blog</title>
+         <title>Simple Blog</title><style type="text/css">
+            body{
+                background-color: lightcoral;
+            }
+            h3{
+                text-align: center;
+            } 
+            p{
+                text-indent: 25px;
+            }
+            </style>
+       
     </h:head>
     <h:body>
         <h:form>
+            <center><h:panelGroup style="display:block; text-align:center">
             <h:dataTable value="#{posts.posts}" var="post">
                 <h:column>
                     <h:commandLink action="#{posts.viewPost(post)}">#{post.title}</h:commandLink>
@@ -26,6 +38,7 @@
             <c:if test="#{!login.loggedIn}">
                 <h:button value="Login" outcome="login" />
             </c:if>
+                </h:panelGroup></center>>
         </h:form>
     </h:body>
 </html>
