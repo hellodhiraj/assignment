@@ -20,7 +20,10 @@
     </h:head>
     <h:body>
         <h:form>
-            <center><h:panelGroup style="display:block; text-align:center">
+            <center>
+                <h:panelGrid id="panel" columns="5" border="1"
+                             cellpadding="10" cellspacing="1">
+                <h:panelGroup style="display:block; text-align:center">
             <h:dataTable value="#{posts.posts}" var="post">
                 <h:column>
                     <h:commandLink action="#{posts.viewPost(post)}">#{post.title}</h:commandLink>
@@ -35,10 +38,13 @@
             <c:if test="#{login.loggedIn}">
                 <h:commandButton value="Add New" action="#{posts.addPost()}" />
             </c:if>
-            <c:if test="#{!login.loggedIn}">
+            
+                </h:panelGroup>
+                    </h:panelGrid>
+                <c:if test="#{!login.loggedIn}">
                 <h:button value="Login" outcome="login" />
             </c:if>
-                </h:panelGroup></center>>
+              </center>
         </h:form>
     </h:body>
 </html>
